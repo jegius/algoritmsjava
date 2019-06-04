@@ -1,12 +1,21 @@
 package com.company.algoritms.examples.array;
 
-class SimpleArray {
+import com.company.algoritms.examples.ExampleCollection;
+
+class SimpleArray implements ExampleCollection {
     private long[] array;
     private int length;
 
     SimpleArray(int maxArrayLength) {
         array = new long[maxArrayLength];
         length = 0;
+    }
+
+    long get(int elementIndex) throws Exception {
+        if (elementIndex < length && elementIndex > 0) {
+            return array[elementIndex];
+        }
+        throw new Exception("Element not found in array");
     }
 
     boolean find(long searchKey) {
@@ -19,7 +28,7 @@ class SimpleArray {
         return !(elementIndex == length);
     }
 
-    void insert(long value) {
+    public void insert(long value) {
         array[length] = value;
         length++;
     }
@@ -36,7 +45,7 @@ class SimpleArray {
         if (elementIndex == length) {
             return false;
         } else {
-            for (int replaceIndex = elementIndex; replaceIndex < length; replaceIndex++) {
+            for (int replaceIndex = elementIndex; replaceIndex < length - 1; replaceIndex++) {
                 array[replaceIndex] = array[replaceIndex + 1];
             }
 
@@ -51,7 +60,7 @@ class SimpleArray {
         }
     }
 
-    int binyriSearch(long searchKey) {
+    int binarySearch(long searchKey) {
         int lowerBound = 0;
         int upperBound = length - 1;
         int currentIndex;
@@ -71,5 +80,48 @@ class SimpleArray {
                 }
             }
         }
+    }
+
+    /** Сложность: O(pow(N, 2))
+     *  Самый простой и самый медленный метод сортировки
+     * */
+    void bubbleSort() {
+        int output;
+        int input;
+
+        for (output = length - 1; output > 1; output--) {
+            for (input = 0; input < output; input++) {
+                if (array[input] > array[output]) {
+                    swap(input, output);
+                }
+            }
+        }
+    }
+
+    /** Сложность: O(pow(N, 2))
+     *  Меньше колличество перестоновок, как итог будет работать
+     *  быстрее при малых значениях N
+     * */
+    void selectSort() {
+        int outputValue;
+        int inputValue;
+        int minimum;
+
+        for (outputValue = 0; outputValue < length - 1; outputValue++) {
+            minimum = outputValue;
+
+            for (inputValue = outputValue + 1; inputValue < length; inputValue++) {
+                if (array[inputValue] < array[minimum]) {
+                    minimum = inputValue;
+                }
+                swap(outputValue, minimum);
+            }
+        }
+    }
+
+    private void swap(int first, int second) {
+        long temp = array[first];
+        array[first] = array[second];
+        array[second] = temp;
     }
 }

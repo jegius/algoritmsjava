@@ -1,24 +1,20 @@
 package com.company.algoritms.examples.array;
 
+import com.company.algoritms.AlgorithmUtils;
 import com.company.algoritms.examples.Example;
 
 public class ArrayExample implements Example {
     private static final int MAX_LENGTH = 10;
 
     public void showExample() {
-        this.showSimpleExample();
-        this.showBinarySearch();
+//        showSimpleExample();
+//        showBinarySearch();
+        selectSort();
     }
 
     private void showSimpleExample() {
         SimpleArray demo = new SimpleArray(MAX_LENGTH);
-
-        demo.insert(22);
-        demo.insert(11);
-        demo.insert(323);
-        demo.insert(453);
-        demo.insert(44);
-        demo.insert(222);
+        AlgorithmUtils.fillCollectionWithRandomNumbers(demo, MAX_LENGTH);
 
         demo.display();
 
@@ -29,23 +25,32 @@ public class ArrayExample implements Example {
             System.out.println("Can't find " + testValue);
         }
 
-        demo.delete(22);
-        demo.delete(323);
-
-        demo.display();
+        try {
+            long testInt = demo.get(1);
+            demo.delete(testInt);
+            demo.display();
+        } catch (Exception error) {
+            error.printStackTrace();
+        }
     }
+
 
     private void showBinarySearch() {
 
-        SimpleArray manualSorted = new SimpleArray(MAX_LENGTH);
-        manualSorted.insert(12);
-        manualSorted.insert(22);
-        manualSorted.insert(31);
-        manualSorted.insert(43);
-        manualSorted.insert(54);
-        manualSorted.insert(65);
-        manualSorted.insert(76);
+        SimpleArray bubbleSort = new SimpleArray(MAX_LENGTH);
+        AlgorithmUtils.fillCollectionWithRandomNumbers(bubbleSort, MAX_LENGTH);
+        bubbleSort.bubbleSort();
 
-        System.out.println(manualSorted.binyriSearch(62));
+        System.out.println(bubbleSort.binarySearch(62));
+
+        bubbleSort.display();
+    }
+
+    private void selectSort() {
+        SimpleArray selectSort = new SimpleArray(MAX_LENGTH);
+        AlgorithmUtils.fillCollectionWithRandomNumbers(selectSort, MAX_LENGTH);
+        selectSort.selectSort();
+
+        selectSort.display();
     }
 }
