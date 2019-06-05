@@ -9,7 +9,8 @@ public class ArrayExample implements Example {
     public void showExample() {
 //        showSimpleExample();
 //        showBinarySearch();
-        selectSort();
+//        selectSort();
+        insertSort();
     }
 
     private void showSimpleExample() {
@@ -52,5 +53,13 @@ public class ArrayExample implements Example {
         selectSort.selectSort();
 
         selectSort.display();
+    }
+
+    private void insertSort() {
+        SimpleArray insertSort = new SimpleArray(MAX_LENGTH);
+        AlgorithmUtils.fillCollectionWithRandomNumbers(insertSort, MAX_LENGTH);
+        insertSort.insertSort();
+
+        insertSort.display();
     }
 }

@@ -119,6 +119,25 @@ class SimpleArray implements ExampleCollection {
         }
     }
 
+    /** Сложность: O(pow(N, 2))
+     *  Работает в два раза быстрее сортировки пузырьком и в нормальных условиях
+     *  быстрее сортировки выбором.
+     * */
+    void insertSort(){
+        int input;
+        int output;
+
+        for(output = 1; output < length; output++) {
+            long temp = array[output];
+            input = output;
+            while (input > 0 && array[input - 1] >= temp) {
+                array[input] = array[input - 1];
+                --input;
+            }
+            array[input] = temp;
+        }
+    }
+
     private void swap(int first, int second) {
         long temp = array[first];
         array[first] = array[second];
