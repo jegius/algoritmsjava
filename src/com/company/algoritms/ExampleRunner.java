@@ -11,7 +11,8 @@ public class ExampleRunner {
     private static final ArrayList<Example> exampleStorage = new ArrayList();
 
     public ExampleRunner() {
-        exampleStorage.add(exampleFactory.createExample(ExampleTypes.ARRAY));
+//        exampleStorage.add(exampleFactory.createExample(ExampleTypes.ARRAY));
+        exampleStorage.add(exampleFactory.createExample(ExampleTypes.STACK));
     }
 
     public void run() {

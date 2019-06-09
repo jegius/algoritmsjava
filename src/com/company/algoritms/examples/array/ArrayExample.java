@@ -7,9 +7,9 @@ public class ArrayExample implements Example {
     private static final int MAX_LENGTH = 10;
 
     public void showExample() {
-//        showSimpleExample();
-//        showBinarySearch();
-//        selectSort();
+        showSimpleExample();
+        showBinarySearch();
+        selectSort();
         insertSort();
     }
 

@@ -1,5 +1,6 @@
 package com.company.algoritms.enums;
 
 public enum ExampleTypes {
-    ARRAY
+    ARRAY,
+    STACK
 }
