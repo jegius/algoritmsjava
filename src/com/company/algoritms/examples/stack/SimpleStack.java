@@ -2,7 +2,7 @@ package com.company.algoritms.examples.stack;
 
 import com.company.algoritms.examples.ExampleCollection;
 
-public class SimpleStack implements ExampleCollection {
+public class SimpleStack implements ExampleCollection<Long> {
     private int maxSize;
     private long[] stackArray;
     private int top;
@@ -13,7 +13,7 @@ public class SimpleStack implements ExampleCollection {
         top = -1;
     }
 
-    public void insert(long value){
+    public void insert(Long value){
         stackArray[++top] = value;
     }
 

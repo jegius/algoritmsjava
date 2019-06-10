@@ -2,7 +2,7 @@ package com.company.algoritms.examples.array;
 
 import com.company.algoritms.examples.ExampleCollection;
 
-class SimpleArray implements ExampleCollection {
+class SimpleArray implements ExampleCollection<Long> {
     private long[] array;
     private int length;
 
@@ -28,7 +28,7 @@ class SimpleArray implements ExampleCollection {
         return !(elementIndex == length);
     }
 
-    public void insert(long value) {
+    public void insert(Long value) {
         array[length] = value;
         length++;
     }

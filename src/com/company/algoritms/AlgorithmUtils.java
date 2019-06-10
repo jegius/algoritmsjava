@@ -12,7 +12,7 @@ public class AlgorithmUtils {
     public static void fillCollectionWithRandomNumbers(ExampleCollection collection, long stop){
         Random random = new Random();
         for(long startIndex = 0; startIndex < stop; startIndex++) {
-            collection.insert(random.nextInt());
+            collection.insert(random.nextLong());
         }
     }
 }
