@@ -17,8 +17,13 @@ public class StackExample implements Example {
      * стека O(1)
      * */
     public void showExample() {
-        stackBaseExample();
-        checkBracketChecker();
+//        stackBaseExample();
+//        checkBracketChecker();
+        infixShowCase();
+    }
+
+    private void infixShowCase() {
+
     }
 
     private void checkBracketChecker() {

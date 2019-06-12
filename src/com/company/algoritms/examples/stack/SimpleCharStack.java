@@ -33,4 +33,18 @@ public class SimpleCharStack implements ExampleCollection<Character> {
     public boolean isEmpty() {
         return (top == -1);
     }
+
+    public int size() {
+        return top + 1;
+    }
+
+    public char getPeek(int elementIndex) {
+        return stackArray[elementIndex];
+    }
+
+    public void display() {
+        for(char element : stackArray) {
+            System.out.println(element);
+        }
+    }
 }

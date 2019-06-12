@@ -9,8 +9,8 @@ public class SimpleStack implements ExampleCollection<Long> {
 
     public SimpleStack(int maxSize) {
         this.maxSize = maxSize;
-        stackArray = new long[maxSize];
-        top = -1;
+        this.stackArray = new long[maxSize];
+        this.top = -1;
     }
 
     public void insert(Long value){
