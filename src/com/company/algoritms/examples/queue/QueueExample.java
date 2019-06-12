@@ -7,7 +7,7 @@ public class QueueExample implements Example {
 
     @Override
     public void showExample() {
-        queueShowCase();
+        priorityQueueShowCase();
     }
 
     private void queueShowCase() {
@@ -29,10 +29,22 @@ public class QueueExample implements Example {
         showQueue(simpleQueue);
     }
 
-    private void showQueue(SimpleQueue queue) {
+    private void showQueue(ExampleQueue queue) {
         while (!queue.isEmpty()) {
-            Long element = queue.remove();
+            Long element = (Long) queue.remove();
             System.out.println(element);
         }
+    }
+
+    private void priorityQueueShowCase() {
+        PriorityQueue priorityQueue = new PriorityQueue(MAX_SIZE);
+
+        priorityQueue.insert(30L);
+        priorityQueue.insert(10L);
+        priorityQueue.insert(50L);
+        priorityQueue.insert(90L);
+        priorityQueue.insert(20L);
+
+        showQueue(priorityQueue);
     }
 }

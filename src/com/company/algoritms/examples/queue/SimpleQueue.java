@@ -1,8 +1,6 @@
 package com.company.algoritms.examples.queue;
 
-import com.company.algoritms.examples.ExampleCollection;
-
-public class SimpleQueue implements ExampleCollection<Long> {
+public class SimpleQueue implements ExampleQueue<Long> {
     private int maxSize;
     private Long[] queueArray;
     private int front;
