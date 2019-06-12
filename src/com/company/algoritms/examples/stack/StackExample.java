@@ -12,6 +12,10 @@ import static com.company.algoritms.Constants.INFINITE_LOOP;
 public class StackExample implements Example {
     private static final int MAX_LENGTH = 10;
 
+    /**
+     * Сложность добавления и извлечения элементов
+     * стека O(1)
+     * */
     public void showExample() {
         stackBaseExample();
         checkBracketChecker();
