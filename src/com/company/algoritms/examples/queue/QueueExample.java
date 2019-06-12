@@ -36,6 +36,10 @@ public class QueueExample implements Example {
         }
     }
 
+    /**
+     * Вставка элемента в приоритетной очереди - O(N)
+     * извлечение - O(1)
+     * */
     private void priorityQueueShowCase() {
         PriorityQueue priorityQueue = new PriorityQueue(MAX_SIZE);
 
