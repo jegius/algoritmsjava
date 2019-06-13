@@ -25,7 +25,7 @@ public class InfixToPostfix implements ShowCase {
 
     @Override
     public void doShowCase() {
-        System.out.println(doTrans());
+        System.out.println("Postfix is: " + doTrans());
     }
 
     public String doTrans() {
@@ -34,10 +34,10 @@ public class InfixToPostfix implements ShowCase {
         }
 
         while (!stack.isEmpty()) {
-            stack.display();
+            stack.display("While ");
             output = output + stack.pop();
         }
-        stack.display();
+        stack.display("End ");
         return output;
     }
 
@@ -66,7 +66,7 @@ public class InfixToPostfix implements ShowCase {
 
     private void buildOutput(int charIndex) {
         char selectedChar = input.charAt(charIndex);
-        stack.display();
+        stack.display("For " + selectedChar + " " );
 
         if (selectedChar == PLUS || selectedChar == MINUS) {
             gotOperator(selectedChar, FIRST_PRIORITY);

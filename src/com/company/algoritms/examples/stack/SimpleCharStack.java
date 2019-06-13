@@ -42,9 +42,13 @@ public class SimpleCharStack implements ExampleCollection<Character> {
         return stackArray[elementIndex];
     }
 
-    public void display() {
-        for(char element : stackArray) {
-            System.out.println(element);
+    public void display(String startText) {
+        System.out.print(startText);
+        System.out.print("Stack (bottom => top): ");
+        for (int charIndex = 0; charIndex < size(); charIndex++) {
+            System.out.print(getPeek(charIndex));
+            System.out.print(' ');
         }
+        System.out.println();
     }
 }

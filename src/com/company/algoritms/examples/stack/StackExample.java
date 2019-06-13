@@ -14,7 +14,6 @@ import static com.company.algoritms.Constants.INFINITE_LOOP;
 
 public class StackExample implements Example {
     private static final int MAX_LENGTH = 10;
-
     private static final ShowCaseFactory showCaseFactory  = new ShowCaseFactory();
 
     /**
