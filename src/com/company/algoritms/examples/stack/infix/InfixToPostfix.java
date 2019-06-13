@@ -60,8 +60,8 @@ public class InfixToPostfix implements ShowCase {
                     output = output + topOperator;
                 }
             }
-            stack.push(thisOperator);
         }
+        stack.push(thisOperator);
     }
 
     private void buildOutput(int charIndex) {
