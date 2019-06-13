@@ -1,18 +1,11 @@
-package com.company.algoritms.examples.stack.infix;
+package com.company.algoritms.examples.stack.infixconverter;
 
 import com.company.algoritms.examples.ShowCase;
 import com.company.algoritms.examples.stack.SimpleCharStack;
 
-public class InfixToPostfix implements ShowCase {
-    private static final char PLUS = '+';
-    private static final char MINUS = '-';
-    private static final char MULTIPLICATION = '*';
-    private static final char DIVISION = '/';
-    private static final char START_PARENTHESIS = '(';
-    private static final char END_PARENTHESIS = ')';
-    private static final int FIRST_PRIORITY = 1;
-    private static final int SECOND_PRIORITY = 2;
+import static com.company.algoritms.examples.stack.Constants.*;
 
+public class InfixToPostfix implements ShowCase {
     private SimpleCharStack stack;
     private String input;
     private String output;

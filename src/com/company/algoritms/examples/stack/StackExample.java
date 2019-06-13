@@ -23,11 +23,16 @@ public class StackExample implements Example {
     public void showExample() {
 //        stackBaseExample();
 //        checkBracketChecker();
-        infixShowCase();
+//        infixShowCase();
+        parseInfixShowCase();
     }
 
     private void infixShowCase() {
         executeConsoleEnter(ShowCaseType.INFIX_CONVERTER);
+    }
+
+    private void parseInfixShowCase() {
+        executeConsoleEnter(ShowCaseType.INFIX_PARSER);
     }
 
     private void checkBracketChecker() {

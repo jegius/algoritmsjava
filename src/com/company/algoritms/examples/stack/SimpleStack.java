@@ -2,7 +2,7 @@ package com.company.algoritms.examples.stack;
 
 import com.company.algoritms.examples.ExampleCollection;
 
-public class SimpleStack implements ExampleCollection<Long> {
+public class SimpleStack extends AbstractStack<Long> implements ExampleCollection<Long> {
     private int maxSize;
     private long[] stackArray;
     private int top;
@@ -25,6 +25,14 @@ public class SimpleStack implements ExampleCollection<Long> {
         return stackArray[top--];
     }
 
+    public int size() {
+        return top + 1;
+    }
+
+    public Long getPeek(int elementIndex) {
+        return stackArray[elementIndex];
+    }
+
     public long peek() {
         return stackArray[top];
     }
@@ -36,4 +44,5 @@ public class SimpleStack implements ExampleCollection<Long> {
     public boolean isFull() {
         return (top == maxSize - 1);
     }
+
 }

@@ -2,7 +2,7 @@ package com.company.algoritms.examples.stack;
 
 import com.company.algoritms.examples.ExampleCollection;
 
-public class SimpleCharStack implements ExampleCollection<Character> {
+public class SimpleCharStack extends AbstractStack<Character> implements ExampleCollection<Character> {
     private int maxSize;
     private char[] stackArray;
     private int top;
@@ -38,17 +38,7 @@ public class SimpleCharStack implements ExampleCollection<Character> {
         return top + 1;
     }
 
-    public char getPeek(int elementIndex) {
+    public Character getPeek(int elementIndex) {
         return stackArray[elementIndex];
-    }
-
-    public void display(String startText) {
-        System.out.print(startText);
-        System.out.print("Stack (bottom => top): ");
-        for (int charIndex = 0; charIndex < size(); charIndex++) {
-            System.out.print(getPeek(charIndex));
-            System.out.print(' ');
-        }
-        System.out.println();
     }
 }
