@@ -1,6 +1,9 @@
 package com.company.algoritms.examples.stack;
 
+import com.company.algoritms.enums.ShowCaseType;
 import com.company.algoritms.examples.Example;
+import com.company.algoritms.examples.ShowCase;
+import com.company.algoritms.examples.ShowCaseFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,6 +14,8 @@ import static com.company.algoritms.Constants.INFINITE_LOOP;
 
 public class StackExample implements Example {
     private static final int MAX_LENGTH = 10;
+
+    private static final ShowCaseFactory showCaseFactory  = new ShowCaseFactory();
 
     /**
      * Сложность добавления и извлечения элементов
@@ -23,23 +28,26 @@ public class StackExample implements Example {
     }
 
     private void infixShowCase() {
-
+        executeConsoleEnter(ShowCaseType.INFIX_CONVERTER);
     }
 
     private void checkBracketChecker() {
+        executeConsoleEnter(ShowCaseType.BRACKETS_CHECKER);
+    }
+
+    private void executeConsoleEnter(ShowCaseType type) {
         String input;
 
         while (INFINITE_LOOP) {
-            System.out.println("Enter string containing delimiters: ");
+            System.out.println("Enter the data: ");
             input = getString();
 
             if (input.equals(EXIT_SYMBOL)) {
                 break;
             }
 
-            BracketChecker bracketChecker = new BracketChecker(input);
-            bracketChecker.check();
-
+            ShowCase bracketChecker = showCaseFactory.createShowCase(type, input);
+            bracketChecker.doShowCase();
         }
     }
 

@@ -1,8 +1,9 @@
 package com.company.algoritms.examples.stack.infix;
 
+import com.company.algoritms.examples.ShowCase;
 import com.company.algoritms.examples.stack.SimpleCharStack;
 
-public class InfixToPostfix {
+public class InfixToPostfix implements ShowCase {
     private static final char PLUS = '+';
     private static final char MINUS = '-';
     private static final char MULTIPLICATION = '*';
@@ -19,6 +20,12 @@ public class InfixToPostfix {
     public InfixToPostfix(String input) {
         this.input = input;
         this.stack = new SimpleCharStack(input.length());
+        this.output = "";
+    }
+
+    @Override
+    public void doShowCase() {
+        System.out.println(doTrans());
     }
 
     public String doTrans() {
@@ -27,6 +34,7 @@ public class InfixToPostfix {
         }
 
         while (!stack.isEmpty()) {
+            stack.display();
             output = output + stack.pop();
         }
         stack.display();
@@ -67,20 +75,20 @@ public class InfixToPostfix {
         } else if (selectedChar == START_PARENTHESIS) {
             stack.push(selectedChar);
         } else if (selectedChar == END_PARENTHESIS) {
-            gotParent(selectedChar);
+            gotParent();
         } else {
             output = output + selectedChar;
         }
     }
 
-    public void gotParent(char selectedChar) {
+    public void gotParent() {
         while (!stack.isEmpty()) {
-            char charIndex = stack.pop();
+            char operator = stack.pop();
 
-            if (charIndex == START_PARENTHESIS) {
+            if (operator == START_PARENTHESIS) {
                 break;
             } else {
-                output = output + charIndex;
+                output = output + operator;
             }
         }
     }

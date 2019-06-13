@@ -1,15 +1,17 @@
 package com.company.algoritms.examples.stack;
 
 import com.company.algoritms.enums.BracketsType;
+import com.company.algoritms.examples.ShowCase;
 
-public class BracketChecker {
+public class BracketChecker implements ShowCase {
     private String input;
 
     public BracketChecker(String input) {
         this.input = input;
     }
 
-    public void check() {
+    @Override
+    public void doShowCase() {
         int stackSize = input.length();
         SimpleCharStack stack = new SimpleCharStack(stackSize);
 
@@ -64,4 +66,6 @@ public class BracketChecker {
                         BracketsType.START_PARENTHESIS.getAsChar() == executedValue
         );
     }
+
+
 }

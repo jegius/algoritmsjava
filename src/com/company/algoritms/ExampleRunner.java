@@ -12,8 +12,8 @@ public class ExampleRunner {
 
     public ExampleRunner() {
 //        exampleStorage.add(exampleFactory.createExample(ExampleTypes.ARRAY));
-//        exampleStorage.add(exampleFactory.createExample(ExampleTypes.STACK));
-        exampleStorage.add(exampleFactory.createExample(ExampleTypes.QUEUE));
+        exampleStorage.add(exampleFactory.createExample(ExampleTypes.STACK));
+//        exampleStorage.add(exampleFactory.createExample(ExampleTypes.QUEUE));
     }
 
     public void run() {
