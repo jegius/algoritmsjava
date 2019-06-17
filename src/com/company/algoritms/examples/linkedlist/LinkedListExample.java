@@ -7,7 +7,8 @@ public class LinkedListExample implements Example  {
     @Override
     public void showExample() {
 //        baseLinkedListShowCase();
-        insertAndDeleteByIdShowCase();
+//        insertAndDeleteByIdShowCase();
+        firstLastListShowCase();
     }
 
     private void baseLinkedListShowCase() {
@@ -22,6 +23,24 @@ public class LinkedListExample implements Example  {
         clearList(linkedList);
         linkedList.displayList();
 
+    }
+
+    private void firstLastListShowCase() {
+        LinkedList linkedList = new LinkedList();
+        linkedList.insert(23.3);
+        linkedList.insert(23.3);
+        linkedList.insert(2344.3);
+
+        linkedList.insertLast(323.3);
+        linkedList.insertLast(323.332);
+        linkedList.insertLast(32433.33);
+
+        linkedList.displayList();
+        System.out.println("===========================");
+
+        linkedList.deleteFirst();
+        System.out.println("===========================");
+        linkedList.displayList();
     }
 
     private void insertAndDeleteByIdShowCase() {
