@@ -57,9 +57,21 @@ public class InfixToPostfix implements ShowCase {
         stack.push(thisOperator);
     }
 
+    public void gotParent() {
+        while (!stack.isEmpty()) {
+            char operator = stack.pop();
+
+            if (operator == START_PARENTHESIS) {
+                break;
+            } else {
+                output = output + operator;
+            }
+        }
+    }
+
     private void buildOutput(int charIndex) {
         char selectedChar = input.charAt(charIndex);
-        stack.display("For " + selectedChar + " " );
+        stack.display("For " + selectedChar + " ");
 
         if (selectedChar == PLUS || selectedChar == MINUS) {
             gotOperator(selectedChar, FIRST_PRIORITY);
@@ -71,18 +83,6 @@ public class InfixToPostfix implements ShowCase {
             gotParent();
         } else {
             output = output + selectedChar;
-        }
-    }
-
-    public void gotParent() {
-        while (!stack.isEmpty()) {
-            char operator = stack.pop();
-
-            if (operator == START_PARENTHESIS) {
-                break;
-            } else {
-                output = output + operator;
-            }
         }
     }
 }
