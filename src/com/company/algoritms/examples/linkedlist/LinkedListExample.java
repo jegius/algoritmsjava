@@ -6,9 +6,11 @@ public class LinkedListExample implements Example  {
 
     @Override
     public void showExample() {
-//        baseLinkedListShowCase();
-//        insertAndDeleteByIdShowCase();
+        baseLinkedListShowCase();
+        insertAndDeleteByIdShowCase();
         firstLastListShowCase();
+        sortedListShowCase();
+        insertSortShowCase();
     }
 
     private void baseLinkedListShowCase() {
@@ -41,6 +43,48 @@ public class LinkedListExample implements Example  {
         linkedList.deleteFirst();
         System.out.println("===========================");
         linkedList.displayList();
+    }
+
+    private void insertSortShowCase() {
+        int size = 10;
+
+        Link[] links = new Link[size];
+
+        for (int index = 0; index < size; index++) {
+            Double random = (Double) (Math.random() * 99);
+            Link newLink = new Link(random);
+            links[index] = newLink;
+        }
+
+        System.out.print("Unsorted array: ");
+
+        for (Link element: links) {
+            System.out.print(element.data + " ");
+        }
+        System.out.println();
+
+        SortedLinkedList sortedLinkedList = new SortedLinkedList(links);
+
+        for (int index = 0; index < size; index++) {
+            links[index] = sortedLinkedList.remove();
+        }
+
+        System.out.print("Sorted Array: ");
+
+        for (Link link: links) {
+            System.out.print(link.data + " ");
+        }
+        System.out.println();
+    }
+
+    private void sortedListShowCase() {
+        SortedLinkedList sortedLinkedList = new SortedLinkedList();
+        sortedLinkedList.insert(2223.3);
+        sortedLinkedList.insert(2123213.2);
+        sortedLinkedList.insert(21313.2);
+        sortedLinkedList.insert(2.22);
+
+        sortedLinkedList.displayList();
     }
 
     private void insertAndDeleteByIdShowCase() {

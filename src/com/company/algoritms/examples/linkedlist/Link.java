@@ -11,6 +11,11 @@ public class Link {
         this.next = null;
     }
 
+    public Link(Double data) {
+        this.data = data;
+        this.next = null;
+    }
+
     public void display() {
         System.out.println("{" + id + ", " + data + "} ");
     }
