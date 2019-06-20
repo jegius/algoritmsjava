@@ -14,7 +14,8 @@ public class ExampleRunner {
 //        exampleStorage.add(exampleFactory.createExample(ExampleTypes.ARRAY));
 //        exampleStorage.add(exampleFactory.createExample(ExampleTypes.STACK));
 //        exampleStorage.add(exampleFactory.createExample(ExampleTypes.QUEUE));
-        exampleStorage.add(exampleFactory.createExample(ExampleTypes.LINKED_LIST));
+//        exampleStorage.add(exampleFactory.createExample(ExampleTypes.LINKED_LIST));
+        exampleStorage.add(exampleFactory.createExample(ExampleTypes.LIST_ITERATOR));
     }
 
     public void run() {

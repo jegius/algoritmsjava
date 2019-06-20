@@ -1,6 +1,7 @@
 package com.company.algoritms.examples.linkedlist;
 
 import com.company.algoritms.examples.Example;
+import com.company.algoritms.examples.linkedlist.doublylinked.DoublyLinkedList;
 
 public class LinkedListExample implements Example  {
 
@@ -11,6 +12,7 @@ public class LinkedListExample implements Example  {
         firstLastListShowCase();
         sortedListShowCase();
         insertSortShowCase();
+        doublyLinkedListShowCase();
     }
 
     private void baseLinkedListShowCase() {
@@ -24,6 +26,31 @@ public class LinkedListExample implements Example  {
         linkedList.displayList();
         clearList(linkedList);
         linkedList.displayList();
+
+    }
+
+    public void doublyLinkedListShowCase() {
+        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+
+        doublyLinkedList.insertFist(22L);
+        doublyLinkedList.insertFist(223L);
+        doublyLinkedList.insertFist(242L);
+
+        doublyLinkedList.insertLast(622L);
+        doublyLinkedList.insertLast(242L);
+        doublyLinkedList.insertLast(8282L);
+
+        doublyLinkedList.displayBackward();
+        doublyLinkedList.displayForward();
+
+        doublyLinkedList.deleteFirst();
+        doublyLinkedList.deleteLast();
+        doublyLinkedList.deleteKey(622L);
+
+        doublyLinkedList.displayForward();
+
+        doublyLinkedList.insertAfter(22L, 44L);
+        doublyLinkedList.displayForward();
 
     }
 

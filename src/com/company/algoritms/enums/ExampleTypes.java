@@ -4,5 +4,6 @@ public enum ExampleTypes {
     ARRAY,
     STACK,
     QUEUE,
-    LINKED_LIST
+    LINKED_LIST,
+    LIST_ITERATOR
 }
