@@ -2,11 +2,11 @@ package com.company.algoritms.examples.array;
 
 import com.company.algoritms.examples.ExampleCollection;
 
-class SimpleArray implements ExampleCollection<Long> {
+public class SimpleArray implements ExampleCollection<Long> {
     private long[] array;
     private int length;
 
-    SimpleArray(int maxArrayLength) {
+    public SimpleArray(int maxArrayLength) {
         array = new long[maxArrayLength];
         length = 0;
     }
@@ -54,7 +54,7 @@ class SimpleArray implements ExampleCollection<Long> {
         }
     }
 
-    void display() {
+    public void display() {
         for (long element : array) {
             System.out.println("[" + element + "] ");
         }
@@ -124,6 +124,53 @@ class SimpleArray implements ExampleCollection<Long> {
                 }
             }
         }
+    }
+
+    /**
+     * Сложность: O(n * log n)
+     * Эфективный алгоритм сортировки основанный на рекурсии, в связи с чем
+     * требует большого объема оперативной памяти для храненеия временных данных.
+     */
+    public void mergeSort() {
+        long[] workSpace = new long[length];
+        recursionMergeSort(workSpace, 0, length - 1);
+    }
+
+    private void recursionMergeSort(long[] workSpase, int lowerBound, int upperBound) {
+        if (lowerBound != upperBound) {
+            int mid = (lowerBound + upperBound) / 2;
+            recursionMergeSort(workSpase, lowerBound, mid);
+            recursionMergeSort(workSpase, mid + 1, upperBound);
+            merge(workSpase, lowerBound, mid + 1, upperBound);
+        }
+    }
+
+    private void merge(long[] workSpace, int lowPointer, int highPointer, int upperBound) {
+        int elementIndex = 0;
+        int loverBound = lowPointer;
+        int mid = highPointer - 1;
+        int cycleCounter = upperBound - loverBound + 1;
+
+        while (lowPointer <= mid && highPointer <= upperBound) {
+            if (array[lowPointer] < array[highPointer]) {
+                workSpace[elementIndex++] = array[lowPointer++];
+            } else {
+                workSpace[elementIndex++] = array[highPointer++];
+            }
+        }
+
+        while (lowPointer <= mid){
+            workSpace[elementIndex++] = array[lowPointer++];
+        }
+
+        while (highPointer <= upperBound) {
+            workSpace[elementIndex++] = array[highPointer++];
+        }
+
+        for (elementIndex = 0; elementIndex < cycleCounter; elementIndex++) {
+            array[loverBound + elementIndex] = workSpace[elementIndex];
+        }
+
     }
 
     /**

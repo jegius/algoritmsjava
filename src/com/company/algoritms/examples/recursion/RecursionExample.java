@@ -1,34 +1,62 @@
 package com.company.algoritms.examples.recursion;
 
+import com.company.algoritms.AlgorithmUtils;
 import com.company.algoritms.examples.Example;
+import com.company.algoritms.examples.array.SimpleArray;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 public class RecursionExample implements Example {
 
-    private RecursionMode mode = RecursionMode.ANAGRAM;
+    private RecursionMode mode = RecursionMode.MERGE_SORT;
     private int anagramSize;
     private int anagramCounter;
     private char[] anagramCharByInput = new char[100];
+    private static final int MAX_LENGTH = 10;
+    private static final int DISK_QUANTITY = 3;
 
     @Override
     public void showExample() {
 
-        if (mode == RecursionMode.BASE_RECURSION) {
-            try {
-                recursionShowCase();
-            } catch (IOException e) {
-                e.printStackTrace();
+        try {
+            switch (mode) {
+                case BASE_RECURSION:
+                    recursionShowCase();
+                    break;
+                case TOWERS:
+                    doTowers(DISK_QUANTITY,  'A', 'B', 'C');
+                    break;
+                case ANAGRAM:
+                    anagramShowCase();
+                    break;
+                case MERGE_SORT:
+                    mergeSortShowCase();
+                    break;
             }
-        } else if (mode == RecursionMode.ANAGRAM) {
-            try {
-                anagramShowCase();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void mergeSortShowCase() {
+        SimpleArray demo = new SimpleArray(MAX_LENGTH);
+        AlgorithmUtils.fillCollectionWithRandomNumbers(demo, MAX_LENGTH);
+
+        demo.display();
+        System.out.println("============================");
+        demo.mergeSort();
+        demo.display();
+    }
+
+    private void doTowers(int towerSize, char from, char inter, char to) {
+        if (towerSize == 1) {
+            System.out.println("Disk 1 from " + from + "  to " + to);
+        } else {
+            doTowers(towerSize - 1, from, to, inter);
+            System.out.println("Disk " + towerSize + " from " + from + " to " + to);
+            doTowers(towerSize - 1, inter, from, to);
         }
     }
 
@@ -72,7 +100,7 @@ public class RecursionExample implements Example {
         int currentPosition = anagramSize - newSize;
         char tempChar = anagramCharByInput[currentPosition];
 
-        for (newPosition = currentPosition + 1; newPosition < anagramSize; newPosition++){
+        for (newPosition = currentPosition + 1; newPosition < anagramSize; newPosition++) {
             anagramCharByInput[newPosition - 1] = anagramCharByInput[newPosition];
         }
         anagramCharByInput[newPosition - 1] = tempChar;
