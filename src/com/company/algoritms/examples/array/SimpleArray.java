@@ -60,6 +60,9 @@ class SimpleArray implements ExampleCollection<Long> {
         }
     }
 
+    /**
+     * Простой бинарный поиск, сложность алгоритма O(log N)
+     */
     int binarySearch(long searchKey) {
         int lowerBound = 0;
         int upperBound = length - 1;
@@ -82,9 +85,34 @@ class SimpleArray implements ExampleCollection<Long> {
         }
     }
 
-    /** Сложность: O(pow(N, 2))
-     *  Самый простой и самый медленный метод сортировки
-     * */
+    /**
+     * Рекурсивный бинарный поиск, сложность O(log N),
+     * однака из-за рекурсии может потреблять больше ресурсов.
+     */
+    int findWithUseRecursion(int searchKey) {
+        return recursiveBinarySearch(searchKey, 0, length - 1);
+    }
+
+    private int recursiveBinarySearch(long searchKey, int lowerBound, int upperBound) {
+        int currentInput = (lowerBound + upperBound) / 2;
+
+        if (array[currentInput] == searchKey) {
+            return currentInput;
+        } else if (lowerBound > upperBound) {
+            return length;
+        } else {
+            if (array[currentInput] < searchKey) {
+                return recursiveBinarySearch(searchKey, currentInput + 1, upperBound);
+            } else {
+                return recursiveBinarySearch(searchKey, lowerBound, currentInput - 1);
+            }
+        }
+    }
+
+    /**
+     * Сложность: O(pow(N, 2))
+     * Самый простой и самый медленный метод сортировки
+     */
     void bubbleSort() {
         int output;
         int input;
@@ -98,10 +126,11 @@ class SimpleArray implements ExampleCollection<Long> {
         }
     }
 
-    /** Сложность: O(pow(N, 2))
-     *  Меньше колличество перестоновок, как итог будет работать
-     *  быстрее при малых значениях N
-     * */
+    /**
+     * Сложность: O(pow(N, 2))
+     * Меньше колличество перестоновок, как итог будет работать
+     * быстрее при малых значениях N
+     */
     void selectSort() {
         int outputValue;
         int inputValue;
@@ -119,15 +148,16 @@ class SimpleArray implements ExampleCollection<Long> {
         }
     }
 
-    /** Сложность: O(pow(N, 2))
-     *  Работает в два раза быстрее сортировки пузырьком и в нормальных условиях
-     *  быстрее сортировки выбором.
-     * */
-    void insertSort(){
+    /**
+     * Сложность: O(pow(N, 2))
+     * Работает в два раза быстрее сортировки пузырьком и в нормальных условиях
+     * быстрее сортировки выбором.
+     */
+    void insertSort() {
         int input;
         int output;
 
-        for(output = 1; output < length; output++) {
+        for (output = 1; output < length; output++) {
             long temp = array[output];
             input = output;
             while (input > 0 && array[input - 1] >= temp) {

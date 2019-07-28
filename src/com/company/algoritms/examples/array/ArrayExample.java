@@ -43,6 +43,7 @@ public class ArrayExample implements Example {
         bubbleSort.bubbleSort();
 
         System.out.println(bubbleSort.binarySearch(62));
+        System.out.println(bubbleSort.findWithUseRecursion(62));
 
         bubbleSort.display();
     }

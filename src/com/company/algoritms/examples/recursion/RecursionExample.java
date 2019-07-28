@@ -94,7 +94,7 @@ public class RecursionExample implements Example {
         System.out.println();
 
         if (anagramCounter % 6 == 0) {
-            System.out.println("");
+            System.out.println();
         }
     }
 
