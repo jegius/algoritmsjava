@@ -4,11 +4,12 @@ import com.company.algoritms.examples.Example;
 import com.company.algoritms.enums.ExampleTypes;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ExampleRunner {
 
     private static final ExampleFactory exampleFactory = new ExampleFactory();
-    private static final ArrayList<Example> exampleStorage = new ArrayList();
+    private static final List<Example> exampleStorage = new ArrayList<Example>();
 
     public ExampleRunner() {
 //        exampleStorage.add(exampleFactory.createExample(ExampleTypes.ARRAY));
