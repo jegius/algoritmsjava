@@ -6,5 +6,6 @@ public enum ExampleTypes {
     QUEUE,
     LINKED_LIST,
     LIST_ITERATOR,
-    RECURSION
+    RECURSION,
+    SHELL_SORT
 }

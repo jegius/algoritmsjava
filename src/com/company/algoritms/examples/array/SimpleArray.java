@@ -136,12 +136,12 @@ public class SimpleArray implements ExampleCollection<Long> {
         recursionMergeSort(workSpace, 0, length - 1);
     }
 
-    private void recursionMergeSort(long[] workSpase, int lowerBound, int upperBound) {
+    private void recursionMergeSort(long[] workSpace, int lowerBound, int upperBound) {
         if (lowerBound != upperBound) {
             int mid = (lowerBound + upperBound) / 2;
-            recursionMergeSort(workSpase, lowerBound, mid);
-            recursionMergeSort(workSpase, mid + 1, upperBound);
-            merge(workSpase, lowerBound, mid + 1, upperBound);
+            recursionMergeSort(workSpace, lowerBound, mid);
+            recursionMergeSort(workSpace, mid + 1, upperBound);
+            merge(workSpace, lowerBound, mid + 1, upperBound);
         }
     }
 
@@ -159,7 +159,7 @@ public class SimpleArray implements ExampleCollection<Long> {
             }
         }
 
-        while (lowPointer <= mid){
+        while (lowPointer <= mid) {
             workSpace[elementIndex++] = array[lowPointer++];
         }
 
@@ -192,6 +192,37 @@ public class SimpleArray implements ExampleCollection<Long> {
                 }
                 swap(outputValue, minimum);
             }
+        }
+    }
+
+    /**
+     * Алгоритм Шелла. Схож по скорости работы с быстрой сортировкой,
+     * отлично подходит для сортировки массивов средней длины.
+     */
+    public void shellSort() {
+        int innerPointer;
+        int outerPointer;
+        long temp;
+        int baseValue = 1;
+
+        final int ARRAY_DIVIDE_QUANTIFICATION = 3;
+
+        while (baseValue <= length / ARRAY_DIVIDE_QUANTIFICATION) {
+            baseValue = baseValue * ARRAY_DIVIDE_QUANTIFICATION + 1;
+        }
+
+        while (baseValue > 0) {
+            for (outerPointer = baseValue; outerPointer < length; outerPointer++) {
+                temp = array[outerPointer];
+                innerPointer = outerPointer;
+
+                while (innerPointer > baseValue - 1 && array[innerPointer - baseValue] >= temp) {
+                    array[innerPointer] = array[innerPointer - baseValue];
+                    innerPointer -= baseValue;
+                }
+                array[innerPointer] = temp;
+            }
+            baseValue = (baseValue - 1) / ARRAY_DIVIDE_QUANTIFICATION;
         }
     }
 

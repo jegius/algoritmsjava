@@ -7,6 +7,7 @@ import com.company.algoritms.examples.linkedlist.LinkedListExample;
 import com.company.algoritms.examples.listiterator.ListIteratorExample;
 import com.company.algoritms.examples.queue.QueueExample;
 import com.company.algoritms.examples.recursion.RecursionExample;
+import com.company.algoritms.examples.shellsort.ShellSortExample;
 import com.company.algoritms.examples.stack.StackExample;
 
 class ExampleFactory {
@@ -30,6 +31,9 @@ class ExampleFactory {
                 break;
             case RECURSION:
                 createdExample = new RecursionExample();
+                break;
+            case SHELL_SORT:
+                createdExample = new ShellSortExample();
                 break;
             default:
                 throw new IllegalArgumentException("Wrong example type:" + type);
