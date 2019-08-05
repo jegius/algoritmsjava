@@ -7,5 +7,6 @@ public enum ExampleTypes {
     LINKED_LIST,
     LIST_ITERATOR,
     RECURSION,
-    SHELL_SORT
+    SHELL_SORT,
+    QUICK_SORT
 }

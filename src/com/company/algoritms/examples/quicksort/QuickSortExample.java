@@ -1,10 +1,10 @@
-package com.company.algoritms.examples.shellsort;
+package com.company.algoritms.examples.quicksort;
 
 import com.company.algoritms.AlgorithmUtils;
 import com.company.algoritms.examples.Example;
 import com.company.algoritms.examples.array.SimpleArray;
 
-public class ShellSortExample implements Example {
+public class QuickSortExample implements Example {
     private static final int MAX_LENGTH = 10;
 
     @Override
@@ -14,18 +14,8 @@ public class ShellSortExample implements Example {
 
         demo.display();
         System.out.println("============================");
-        demo.shellSort();
+
+        demo.quickSort();
         demo.display();
-
-        System.out.println("============================");
-
-        try {
-            System.out.println(demo.get(2));
-            demo.partitionIt(0, MAX_LENGTH - 1, demo.get(2));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        demo.display();
-
     }
 }

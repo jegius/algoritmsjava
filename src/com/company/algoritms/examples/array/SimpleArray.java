@@ -11,7 +11,7 @@ public class SimpleArray implements ExampleCollection<Long> {
         length = 0;
     }
 
-    long get(int elementIndex) throws Exception {
+    public long get(int elementIndex) throws Exception {
         if (elementIndex < length && elementIndex > 0) {
             return array[elementIndex];
         }
@@ -58,6 +58,49 @@ public class SimpleArray implements ExampleCollection<Long> {
         for (long element : array) {
             System.out.println("[" + element + "] ");
         }
+    }
+
+
+    /**
+     *  Быстрая сортировка, время выполнения O(N*log(n))
+     *  для случаев сортировки в ОЗУ.
+     * */
+    public void quickSort() {
+        recQuickSort(0, length - 1);
+    }
+
+    private void recQuickSort(int left, int right) {
+        if (right - left <= 0) {
+            return;
+        } else {
+            long pivot = array[right];
+
+            int partition = partitionIt(left, right, pivot);
+            recQuickSort(left, partition - 1);
+            recQuickSort(partition + 1, right);
+        }
+    }
+
+    /**
+     *  Алгоритм разделения, выполняется за время O(N)
+     * */
+    public int partitionIt(int left, int right, long pivot) {
+        int leftPointer = left - 1;
+        int rightPointer = right;
+
+        while (true) {
+            while (leftPointer < right && array[++leftPointer] < pivot);
+
+            while (rightPointer > left && array[--rightPointer] > pivot);
+
+            if(leftPointer >= rightPointer) {
+                break;
+            } else {
+                swap(leftPointer, rightPointer);
+            }
+        }
+        swap(leftPointer, right);
+        return leftPointer;
     }
 
     /**

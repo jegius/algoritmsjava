@@ -18,7 +18,8 @@ public class ExampleRunner {
 //        exampleStorage.add(exampleFactory.createExample(ExampleTypes.LINKED_LIST));
 //        exampleStorage.add(exampleFactory.createExample(ExampleTypes.LIST_ITERATOR));
 //        exampleStorage.add(exampleFactory.createExample(ExampleTypes.RECURSION));
-        exampleStorage.add(exampleFactory.createExample(ExampleTypes.SHELL_SORT));
+//        exampleStorage.add(exampleFactory.createExample(ExampleTypes.SHELL_SORT));
+        exampleStorage.add(exampleFactory.createExample(ExampleTypes.QUICK_SORT));
     }
 
     public void run() {
