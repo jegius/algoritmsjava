@@ -1,5 +1,6 @@
 package com.company.algoritms.examples.listiterator;
 
+import com.company.algoritms.enums.ExampleType;
 import com.company.algoritms.examples.Example;
 
 import java.io.BufferedReader;
@@ -7,6 +8,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class ListIteratorExample implements Example {
+
+    private final ExampleType type;
+
+    public ListIteratorExample(ExampleType type) {
+        this.type = type;
+    }
 
     @Override
     public void showExample() {
@@ -122,5 +129,9 @@ public class ListIteratorExample implements Example {
 
     private static int getInt() throws IOException {
         return Integer.parseInt(getString());
+    }
+
+    public ExampleType getType() {
+        return type;
     }
 }

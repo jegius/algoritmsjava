@@ -1,7 +1,7 @@
 package com.company.algoritms;
 
+import com.company.algoritms.enums.ExampleType;
 import com.company.algoritms.examples.Example;
-import com.company.algoritms.enums.ExampleTypes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,19 +12,27 @@ public class ExampleRunner {
     private static final List<Example> exampleStorage = new ArrayList<Example>();
 
     public ExampleRunner() {
-//        exampleStorage.add(exampleFactory.createExample(ExampleTypes.ARRAY));
-//        exampleStorage.add(exampleFactory.createExample(ExampleTypes.STACK));
-//        exampleStorage.add(exampleFactory.createExample(ExampleTypes.QUEUE));
-//        exampleStorage.add(exampleFactory.createExample(ExampleTypes.LINKED_LIST));
-//        exampleStorage.add(exampleFactory.createExample(ExampleTypes.LIST_ITERATOR));
-//        exampleStorage.add(exampleFactory.createExample(ExampleTypes.RECURSION));
-//        exampleStorage.add(exampleFactory.createExample(ExampleTypes.SHELL_SORT));
-        exampleStorage.add(exampleFactory.createExample(ExampleTypes.QUICK_SORT));
+        exampleStorage.add(exampleFactory.createExample(ExampleType.ARRAY));
+        exampleStorage.add(exampleFactory.createExample(ExampleType.STACK));
+        exampleStorage.add(exampleFactory.createExample(ExampleType.QUEUE));
+        exampleStorage.add(exampleFactory.createExample(ExampleType.LINKED_LIST));
+        exampleStorage.add(exampleFactory.createExample(ExampleType.LIST_ITERATOR));
+        exampleStorage.add(exampleFactory.createExample(ExampleType.RECURSION));
+        exampleStorage.add(exampleFactory.createExample(ExampleType.SHELL_SORT));
+        exampleStorage.add(exampleFactory.createExample(ExampleType.QUICK_SORT));
+        exampleStorage.add(exampleFactory.createExample(ExampleType.TREE));
     }
 
-    public void run() {
-        for (Example example : exampleStorage) {
-            example.showExample();
-        }
+    public void run(ExampleType exampleType) {
+        Example neededExample = exampleStorage
+                .stream()
+                .filter(example -> example
+                        .getType()
+                        .equals(exampleType))
+                .findFirst()
+                .orElse(null);
+
+        assert neededExample != null;
+        neededExample.showExample();
     }
 }

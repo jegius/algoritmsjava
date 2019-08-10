@@ -1,6 +1,6 @@
 package com.company.algoritms;
 
-import com.company.algoritms.enums.ExampleTypes;
+import com.company.algoritms.enums.ExampleType;
 import com.company.algoritms.examples.Example;
 import com.company.algoritms.examples.array.ArrayExample;
 import com.company.algoritms.examples.linkedlist.LinkedListExample;
@@ -10,38 +10,31 @@ import com.company.algoritms.examples.quicksort.QuickSortExample;
 import com.company.algoritms.examples.recursion.RecursionExample;
 import com.company.algoritms.examples.shellsort.ShellSortExample;
 import com.company.algoritms.examples.stack.StackExample;
+import com.company.algoritms.examples.tree.TreeExample;
 
 class ExampleFactory {
-    Example createExample(ExampleTypes type) {
-        Example createdExample;
+    Example createExample(ExampleType type) {
         switch (type) {
             case ARRAY:
-                createdExample = new ArrayExample();
-                break;
+                return new ArrayExample(type);
             case STACK:
-                createdExample = new StackExample();
-                break;
+                return new StackExample(type);
             case QUEUE:
-                createdExample = new QueueExample();
-                break;
+                return new QueueExample(type);
             case LINKED_LIST:
-                createdExample = new LinkedListExample();
-                break;
+                return new LinkedListExample(type);
             case LIST_ITERATOR:
-                createdExample = new ListIteratorExample();
-                break;
+                return new ListIteratorExample(type);
             case RECURSION:
-                createdExample = new RecursionExample();
-                break;
+                return new RecursionExample(type);
             case SHELL_SORT:
-                createdExample = new ShellSortExample();
-                break;
+                return new ShellSortExample(type);
             case QUICK_SORT:
-                createdExample = new QuickSortExample();
-                break;
+                return new QuickSortExample(type);
+            case TREE:
+                return new TreeExample(type);
             default:
                 throw new IllegalArgumentException("Wrong example type:" + type);
         }
-        return createdExample;
     }
 }

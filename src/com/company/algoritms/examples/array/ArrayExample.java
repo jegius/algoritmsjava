@@ -1,10 +1,17 @@
 package com.company.algoritms.examples.array;
 
 import com.company.algoritms.AlgorithmUtils;
+import com.company.algoritms.enums.ExampleType;
 import com.company.algoritms.examples.Example;
 
 public class ArrayExample implements Example {
     private static final int MAX_LENGTH = 10;
+
+    private final ExampleType type;
+
+    public ArrayExample(ExampleType type) {
+        this.type = type;
+    }
 
     public void showExample() {
         showSimpleExample();
@@ -62,5 +69,9 @@ public class ArrayExample implements Example {
         insertSort.insertSort();
 
         insertSort.display();
+    }
+
+    public ExampleType getType() {
+        return type;
     }
 }

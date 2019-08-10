@@ -1,9 +1,16 @@
 package com.company.algoritms.examples.linkedlist;
 
+import com.company.algoritms.enums.ExampleType;
 import com.company.algoritms.examples.Example;
 import com.company.algoritms.examples.linkedlist.doublylinked.DoublyLinkedList;
 
 public class LinkedListExample implements Example  {
+
+    private final ExampleType type;
+
+    public LinkedListExample(ExampleType type) {
+        this.type = type;
+    }
 
     @Override
     public void showExample() {
@@ -143,5 +150,9 @@ public class LinkedListExample implements Example  {
             System.out.println("deleted: ");
             deletedItem.display();
         }
+    }
+
+    public ExampleType getType() {
+        return type;
     }
 }

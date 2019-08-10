@@ -1,9 +1,16 @@
 package com.company.algoritms.examples.queue;
 
+import com.company.algoritms.enums.ExampleType;
 import com.company.algoritms.examples.Example;
 
 public class QueueExample implements Example {
     private static final int MAX_SIZE = 5;
+
+    private final ExampleType type;
+
+    public QueueExample(ExampleType type) {
+        this.type = type;
+    }
 
     @Override
     public void showExample() {
@@ -50,5 +57,9 @@ public class QueueExample implements Example {
         priorityQueue.insert(20L);
 
         showQueue(priorityQueue);
+    }
+
+    public ExampleType getType() {
+        return type;
     }
 }

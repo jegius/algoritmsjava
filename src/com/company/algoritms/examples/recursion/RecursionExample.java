@@ -1,6 +1,7 @@
 package com.company.algoritms.examples.recursion;
 
 import com.company.algoritms.AlgorithmUtils;
+import com.company.algoritms.enums.ExampleType;
 import com.company.algoritms.examples.Example;
 import com.company.algoritms.examples.array.SimpleArray;
 
@@ -10,12 +11,17 @@ import java.io.InputStreamReader;
 
 public class RecursionExample implements Example {
 
+    private final ExampleType type;
     private RecursionMode mode = RecursionMode.MERGE_SORT;
     private int anagramSize;
     private int anagramCounter;
     private char[] anagramCharByInput = new char[100];
     private static final int MAX_LENGTH = 10;
     private static final int DISK_QUANTITY = 3;
+
+    public RecursionExample(ExampleType type) {
+        this.type = type;
+    }
 
     @Override
     public void showExample() {
@@ -141,5 +147,9 @@ public class RecursionExample implements Example {
 
     private static int getInt() throws IOException {
         return Integer.parseInt(getString());
+    }
+
+    public ExampleType getType() {
+        return type;
     }
 }

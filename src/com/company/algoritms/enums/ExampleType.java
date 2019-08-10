@@ -1,6 +1,6 @@
 package com.company.algoritms.enums;
 
-public enum ExampleTypes {
+public enum ExampleType {
     ARRAY,
     STACK,
     QUEUE,
@@ -8,5 +8,6 @@ public enum ExampleTypes {
     LIST_ITERATOR,
     RECURSION,
     SHELL_SORT,
-    QUICK_SORT
+    QUICK_SORT,
+    TREE
 }

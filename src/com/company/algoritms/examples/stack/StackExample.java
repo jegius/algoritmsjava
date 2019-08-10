@@ -1,5 +1,6 @@
 package com.company.algoritms.examples.stack;
 
+import com.company.algoritms.enums.ExampleType;
 import com.company.algoritms.enums.ShowCaseType;
 import com.company.algoritms.examples.Example;
 import com.company.algoritms.examples.ShowCase;
@@ -15,6 +16,12 @@ import static com.company.algoritms.Constants.INFINITE_LOOP;
 public class StackExample implements Example {
     private static final int MAX_LENGTH = 10;
     private static final ShowCaseFactory showCaseFactory  = new ShowCaseFactory();
+
+    private final ExampleType type;
+
+    public StackExample(ExampleType type) {
+        this.type = type;
+    }
 
     /**
      * Сложность добавления и извлечения элементов
@@ -78,5 +85,9 @@ public class StackExample implements Example {
             long value = simpleStack.pop();
             System.out.println(value);
         }
+    }
+
+    public ExampleType getType() {
+        return type;
     }
 }
