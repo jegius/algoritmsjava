@@ -1,5 +1,7 @@
 package com.company.algoritms.examples.tree;
 
+import java.util.Objects;
+
 public class Person {
     private String firstName;
     private String lastName;
@@ -43,6 +45,22 @@ public class Person {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return getId() == person.getId() &&
+                getAge() == person.getAge() &&
+                Objects.equals(getFirstName(), person.getFirstName()) &&
+                Objects.equals(getLastName(), person.getLastName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFirstName(), getLastName(), getId(), getAge());
     }
 
     @Override
