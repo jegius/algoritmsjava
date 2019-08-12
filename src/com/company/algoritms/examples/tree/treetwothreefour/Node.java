@@ -1,7 +1,5 @@
 package com.company.algoritms.examples.tree.treetwothreefour;
 
-import java.util.Arrays;
-
 public class Node {
     public static final int ORDER = 4;
     private int length;
