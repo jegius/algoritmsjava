@@ -49,8 +49,8 @@ public class ArrayExample implements Example {
         AlgorithmUtils.fillCollectionWithRandomNumbers(bubbleSort, MAX_LENGTH);
         bubbleSort.bubbleSort();
 
-        System.out.println(bubbleSort.binarySearch(62));
-        System.out.println(bubbleSort.findWithUseRecursion(62));
+        System.out.println(bubbleSort.binarySearch(10));
+        System.out.println(bubbleSort.findWithUseRecursion(10));
 
         bubbleSort.display();
     }

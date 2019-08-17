@@ -9,5 +9,6 @@ public enum ExampleType {
     RECURSION,
     SHELL_SORT,
     QUICK_SORT,
-    TREE
+    TREE,
+    HASH_MAP
 }

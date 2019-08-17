@@ -21,6 +21,7 @@ public class ExampleRunner {
         exampleStorage.add(exampleFactory.createExample(ExampleType.SHELL_SORT));
         exampleStorage.add(exampleFactory.createExample(ExampleType.QUICK_SORT));
         exampleStorage.add(exampleFactory.createExample(ExampleType.TREE));
+        exampleStorage.add(exampleFactory.createExample(ExampleType.HASH_MAP));
     }
 
     public void run(ExampleType exampleType) {
