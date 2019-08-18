@@ -28,6 +28,10 @@ public class PriorityQueue implements ExampleQueue<Long> {
         return queueArray[length - 1];
     }
 
+    public int size() {
+        return length;
+    }
+
     public boolean isEmpty() {
         return (length == 0);
     }
