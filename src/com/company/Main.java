@@ -7,6 +7,6 @@ public class Main {
 
     public static void main(String[] args) {
         ExampleRunner applicationRunner = new ExampleRunner();
-        applicationRunner.run(ExampleType.HASH_MAP);
+        applicationRunner.run(ExampleType.GRAPH);
     }
 }

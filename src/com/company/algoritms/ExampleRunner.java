@@ -9,7 +9,7 @@ import java.util.List;
 public class ExampleRunner {
 
     private static final ExampleFactory exampleFactory = new ExampleFactory();
-    private static final List<Example> exampleStorage = new ArrayList<Example>();
+    private static final List<Example> exampleStorage = new ArrayList<>();
 
     public ExampleRunner() {
         exampleStorage.add(exampleFactory.createExample(ExampleType.ARRAY));
@@ -22,6 +22,8 @@ public class ExampleRunner {
         exampleStorage.add(exampleFactory.createExample(ExampleType.QUICK_SORT));
         exampleStorage.add(exampleFactory.createExample(ExampleType.TREE));
         exampleStorage.add(exampleFactory.createExample(ExampleType.HASH_MAP));
+        exampleStorage.add(exampleFactory.createExample(ExampleType.HEAP));
+        exampleStorage.add(exampleFactory.createExample(ExampleType.GRAPH));
     }
 
     public void run(ExampleType exampleType) {

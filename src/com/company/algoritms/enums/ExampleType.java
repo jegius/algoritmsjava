@@ -10,5 +10,7 @@ public enum ExampleType {
     SHELL_SORT,
     QUICK_SORT,
     TREE,
-    HASH_MAP
+    HASH_MAP,
+    HEAP,
+    GRAPH
 }

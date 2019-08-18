@@ -3,7 +3,9 @@ package com.company.algoritms;
 import com.company.algoritms.enums.ExampleType;
 import com.company.algoritms.examples.Example;
 import com.company.algoritms.examples.array.ArrayExample;
+import com.company.algoritms.examples.graph.GraphExample;
 import com.company.algoritms.examples.hashmap.HashMapExample;
+import com.company.algoritms.examples.heap.HeapExapmple;
 import com.company.algoritms.examples.linkedlist.LinkedListExample;
 import com.company.algoritms.examples.listiterator.ListIteratorExample;
 import com.company.algoritms.examples.queue.QueueExample;
@@ -36,6 +38,10 @@ class ExampleFactory {
                 return new TreeExample(type);
             case HASH_MAP:
                 return new HashMapExample(type);
+            case HEAP:
+                return new HeapExapmple(type);
+            case GRAPH:
+                return new GraphExample(type);
             default:
                 throw new IllegalArgumentException("Wrong example type:" + type);
         }
